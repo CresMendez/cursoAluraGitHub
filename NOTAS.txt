@@ -55,7 +55,7 @@ git commit -m "renombrando curso de integracion continua"
 
 ahora se sube al servidor con el comando
 
-$ git push servidorlocal master con los cambio que hizo ana
+$ git push servidorlocal master      con los cambio que hizo ana
 
 volvemos a la carpeta principal de bruno 
 
@@ -66,6 +66,10 @@ y descargamos desde el serveer nuevamente los archivos con el cambio hecho por a
 git pull servidorlocal master
 salir 
 :Q
+----------------------------
+github
+-----
+
 
 
 

@@ -1,0 +1,45 @@
+Cómo buscar una palabra en una cadena JavaScript?
+Búsqueda de texto en JavaScript
+
+var cadena = «Esto es una prueba»;
+var palabra = «prueba»; 
+var index = cadena.indexOf(palabra); 
+if(index >= 0) { console.
+var cadena = «Esto es una prueba»; 
+var expression = /prueba/; 
+var index = cadena.
+var palabra = «prueba»;
+ $(«#paragraph p»).
+¿Cómo extraer caracteres de una cadena en JavaScript?
+
+Prepare For Battle! Play Now!
+Join epic space combat!
+Play War Of Warships for free now!
+Build your own warship. Register for free.
+En JavaScript, substring() es un método para extraer una subcadena de texto de una cadena más grande, dadas las posiciones inicial y
+ final dentro de la cadena. Debido a que el método substring() es un método del objeto String, debe invocarse a través de una instancia particular de su clase.
+               <!-- <form>
+                    <textarea class="Desencriptar" name="" id="" cols="40" rows="18">
+                    </textarea>
+                   
+                    <input type="button" class="btnCopiar" value="Copiar">-->
+                <!--</form> -->
+
+
+
+Hola, subo de nuevo, no me filtraba las mayúsculas del corrector ortográfico del Smartphone la version de anoche.
+Features:
+* Si el usuario pega texto con mayúsculas, una función lo convierte en minúsculas para ahorrarle ese trabajo, también en smartphone (¡¡me costó mucho eso!!)
+* Responsivo, también en landscape
+* Si el cuadro de texto está vacío, al presionar los botones, se le avisa al usuario.
+* Corrector ortográfico desactivado en Smartphones
+* Al copiar se le avisa al usuario que se copió el texto
+* Si no se copia nada, se le indica al usuario que ingrese texto
+* Números, acentos y caracteres especiales están bloqueados.
+* Agregue un botón de reset (recarga la página y borra el texto ingresado)
+* Se pueden ingresar mayúsculas, pero una función las convierte en minúsculas (o sea no se puede :))
+
+Codigo: https://github.com/escrib/mensaje-secreto/tree/master
+Pages: https://escrib.github.io/mensaje-secreto/ 
+
+Genteee buen dia:D Quisiera compartirles la primera version del challenge que hice para el desencriptador. Acepto recomendaciones  https://josepf5.github.io/DesencriptadorAlura/ https://github.com/JosepF5/DesencriptadorAlura
