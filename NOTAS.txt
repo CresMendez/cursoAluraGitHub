@@ -1,0 +1,123 @@
+es necesario informar quien eres , esto se hace al iniciar si es que no lo tiene.
+
+git config --local user.name "Tu nombre aquí"(local solo para este repositorio)  tambien se puede poner --global user... (para todos los proyectos que se haran)
+git config --local user.email "Tu@email.aqui”
+
+git init  = ¡Opción correcta! git init inicializa un repositorio en el directorio donde se ejecuta el comando. Desde este comando, Git podrá administrar los cambios realizados en los archivos.
+git status = para ver el estatus del repositorio
+git add . o index =  lo usas para empezar a rastrear archivos nuevos, preparar archivos, y hacer otras cosas como marcar archivos en conflicto por combinación como resueltos. para que empiece a monitorear los cambios 
+git commit -m "comentario" =Se hace guarda los combios realizados y un comentario del cambio o lo que se haya creado"
+		al hacer algun cambio en nuestro index se pone comenado git add .   luego se guarda con el comando git commit -m ""
+git log = muestra el hash, head branch(rama) y el historial de cambios.
+clear = limpiar pantalla.
+git log --oneline = muestra el historial por lineas
+git log -p = para ver la modificacion de los archivos, es decir el codigo fuente de los cambios hechos
+:q = para salir del historico
+pagina para ver mas filtros de gistoricos  devhints.io/git-log-format
+git log --help y ve algunas de las posibles opciones. Para obtener algunos ejemplos más fáciles de entender  https://devhints.io/git-log.
+-------
+se hace commit cada que el proyecto funciona bien o se corrgie un bug
+para ignorar archivos se crea un archivo .gitingnore y dentro se pone los nombres de los archivos a ignorar -> carpeta/ a.config
+-------
+Deberíamos generar un commit siempre que nuestra base de código esté en un estado que nos gustaría recordar. Nunca deberíamos tener commits de código que no funcionen, pero tampoco es interesante dejar el commit solo al final de una función.
+-------
+repositorios remotos pero local en mi pc
+se crea carpeta con nombre servidor "servidor"
+en termimnal poner 
+git init --bare 
+initialized empty git repository in C:/Users/cmend/Desktop/CAPACITACION ALURA LATAM/GIT Y GITHUB/servidor/ (si hay espacio poner una diagonal invertida ej: git\ y\ git\ hub).
+git remote add servidor local  C:/Users/cmend/Desktop/CAPACITACION ALURA LATAM/GIT Y GITHUB/servidor/   = agegando servidor remoto local
+git remote  = para ver si hay un servidor local
+git remote -v = para ver si esta apuntando correctamente al servidor local(tiene que aparecer fetch=obtener file y push=enviar files)
+
+----
+para clonar un priyecto
+git clone  /c/Users/cmend/Desktop/CAPACITACION\ ALURA\ LATAM/GIT\ Y\ GITHUB/servidor/ proyecto   (proyecto es el nombre que tendra)
+
+para enviar nuestro proyecto al servidor local 
+git push servidorlocal master
+
+	luego el usuario ana tiene que descargar el proyecto desde el servidor pero antes cambiar el nombre de origin
+git remote rename origin servidorlocal
+
+	validamos
+git remote	nos muestra = servidorlocal
+
+git pull servidorlocal master   = para descargar el proyecto creo desde el servidor 
+
+al modificar la copia del index.html de ana hay que volver a guardarlo y confirmarlo 
+
+git add index.html
+
+luego confirmamos con
+
+git commit -m "renombrando curso de integracion continua"
+
+ahora se sube al servidor con el comando
+
+$ git push servidorlocal master con los cambio que hizo ana
+
+volvemos a la carpeta principal de bruno 
+
+cd.. 
+
+y descargamos desde el serveer nuevamente los archivos con el cambio hecho por ana
+
+git pull servidorlocal master
+salir 
+:Q
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+HEAD: Estado actual de nuestro código, es decir, donde nos colocó Git
+Working tree: Lugar donde los archivos realmente están siendo almacenados
+index: Lugar donde Git almacena lo que será commiteado, es decir, la ubicación entre el working tree y el repositorio de Git en sí.
+
+https://git-scm.com/book/es/v2/Fundamentos-de-Git-Guardando-cambios-en-el-Repositorio
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Qué son (y para qué sirven) los sistemas de control de versiones y cómo pueden ayudar a nuestro flujo de desarrollo
+Nos ayudan a mantener un historial de cambios;
+Nos ayudan a tener control sobre cada cambio en el código;
+Nos ayudan a que un cambio de una persona no influya en el cambio realizado por otra;
+Etc.
