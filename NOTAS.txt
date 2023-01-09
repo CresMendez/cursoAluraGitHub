@@ -75,13 +75,125 @@ git remote add origin https://github.com/CresMendez/cursoAluraGitHub.git   = cop
 
 git push -u origin master   = para mandar forzar el envio a nuetro repositorio de github
 -------------------------------
-branches
+branches       GIT-SCHOOL.GITHUB.IO/VISUALIZING-GIT
 -------------------------------
 git branch = para ver que branch (rama) estamos, el * indica en donde estamos
 
 git branch nombreRama = para crear una nueva rama
 
 git checkout nombreRama = para cambiarnos de rama
+
+estando en la rama titulo hacemos modificaciones en el index.html y agrgamos add y confirmamos con commit
+
+revisando con git log , vemos con los cambios se hicieron en la rama  titulo
+
+en el titulo puedo ver los commit de master ya desde ahi parti 
+
+en proyecto de ANA---------------------
+creamos nueva Rama y nos movemos a ella con el comando:
+git checkout -b lista   = la b es para crear y movernos al mismo tiempo a esa rama.
+
+modificamos index.html 
+git add .
+hacmeos git commit
+revisamos con git log que los cambios se hayan hecho solo en la rama lista
+listo
+Para eliminar una rama de nuestro repositorio local ejecutaremos el siguiente comando:
+$ git branch -d nombre_rama
+----------------------
+hay que fusionar o mandar los cambios de la rama titulo a la rama master , al igual que de ana, lista a rama master.
+UNIENDO EL TRABAJO (MERGE)
+----------------------
+
+Estando en la rama principal master
+git merge titulo  = para fusionar rama master con rama titulo, unira lo que se hizo en titulo con lo que se hizo en master
+revisamos con 
+git log y vemos el merge titulo.
+---------------------------------
+actualizando la branch (git rebase) = (fusiona el trabajo como merge) mantiene el commit antes de master , en un solo camino , es algo semilar a merge. cual es mejor merge o rebase https://medium.com/datadriveninvestor/git-rebase-vs-merge-cc5199edd77c.
+----------------------------------
+git log --graph , para ver el historio de otra forma mas detalle , caminos donde se ha llevado los cambios
+hacemos modificaciones en la rama titulo y volvemos a la rama master para unir con el comando 
+
+git rebase titulo
+
+luego nos vamos a la carpeta ANA y descargamos todos los cambios que hizo bruno con el comando 
+git pull servidorlocal master.
+
+luego nos vamos a rama lista
+git checkout lista
+modificamos la lista de nuestro index y guardamos 
+revisamos con
+git log -p  =para ver que cambios hubo
+EN BRUNO SE MODIFICO ESA MISMA LINEA Y CON ANA SE MODIFICO ESA MISMA LINEA TMB , QUE PASA SI SE QUIERE UNIR ESA LINEA?
+
+------------------------------------------------------
+resolviendo conflictos 
+-----------------------------------------------------
+al colocar el comando en rama master 
+git merge lista
+marca error auto mergi conflic, es decir hay un conflicto, se corrgi eliminado el codigo desde visaul code, dejar solo una liena de amabas de las que se repite 
+eliminamos y guardamos
+
+ejecutamos un 
+git estatus y nos dice que 2 archvios han sido modifcados
+both modified: index.html
+
+ahora guardamos el cambio con el comando git add
+git add .
+cmend@DESKTOP-L01L4IF MINGW64 ~/Desktop/CAPACITACION ALURA LATAM/GIT Y GITHUB/ana/proyecto (master|MERGING)
+$ git add index.html
+
+luego un git commit     = sin el mensaje de -m "".  LISTO SE CORRIGIO EL ERROR DEL CONFLICTO
+
+podremos ya enviar a nuestro servidor local
+git push servidorlocal master
+
+ahora en el archvio de  bruno 
+modifico una lista vangrant 
+git status
+git add .  = para guardar los cambios 
+git commit -m "corrigiendo curso de vangrant" = confirmamos
+git push servidorlocal master  = lo enviamos a nuestro servidor local pero este nos MARCA ERRORR! ESTO POR QUR NO TENEMOS LA VERSION MAS ACTUAL , HAY QUE BAJARLA CON EL COMANDO:
+git pull servidorlocal master
+ya que tengamos la version mas actual , revisamos que este todos los cambio que se bajaron y el del nuestro  
+con git status revisamos que este todo en tode y la mandamos a nuestro servidor local 
+git push servidorlocal master
+y en carpeta ana igual vamos la version mas actual con el comando 
+git pull servidorlocal master.
+
+
+----------------------------------------------------------
+ctrl +z En Git.
+--------------------------------------------------------
+para regresar a un punto anteriro antes que se le haya agregado el git add .
+con git restore nombredelArchivo se puede restaurar.
+git restore nombredelArchivo 
+
+si ya se aplicaco el comando git add .
+se usa comando git restore --staged nombreArhivo     = para quitar ese comando git add .
+y luego git restore nombreArhivo    =para restaruar o deshacer el cambio aplicado.
+
+si ya se aplico el comando git add y commiteado (git commit -m "")
+entonces nos vamos a log (historial) para sacar el hash es decir el codgigo del cambio.
+git log 
+luego copiamos el hash ctrl+ c
+git revert codigoHash    = para deshacer el cambio o volver al condigo antes aplicado.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -111,7 +223,88 @@ git checkout nombreRama = para cambiarnos de rama
 
 
 
+------------------------------04 conflictos 
+Ha llegado el momento de que pongas en práctica lo visto en clase. Para hacer esto, sigue los pasos que se enumeran a continuación.
 
+1) Ejecute el comando git branch y ve que solo existe la rama master en tu repositorio;
+
+2) Ejecuta el comando git branch titulo e inmediatamente después ejecuta el comando git branch. Ve que se creó una nueva rama;
+
+3) Ahora, para comenzar a trabajar en esta rama, escribe git checkout titulo;
+
+4) Ejecuta git branch nuevamente y verifica que ahora te encuentras en la rama llamada titulo;
+
+5) Cambia el título de la página index.html a "Cursos de DevOps de Alura";
+
+6) Agrega los cambios con git add index.html;
+
+7) Haz el commit con git commit -m "Cambiando el título de la página";
+
+8) Ejecuta el comando git log y verifica el nuevo commit;
+
+9) Cambia el título de la página a "Lista de cursos de DevOps de Alura";
+
+10) Repite los pasos 6 y 7, para agregar un nuevo commit, cambiando el mensaje;
+
+11) Repite el paso 8 para verificar el nuevo commit;
+
+12) Ejecuta el comando git checkout master para volver a la línea de desarrollo master;
+
+13) Ejecuta git log para verificar que los dos últimos commits no estén ahí. Comprueba que el contenido de tu archivo también ha vuelto a su estado original;
+
+14) En la carpeta creada para representar el trabajo de otra persona en la clase anterior:
+
+Ejecuta git checkout -b lista para crear una nueva branch, llamada lista y comienza a trabajar en ella;
+Agrega el curso "Kubernetes" a la lista;
+Repite los pasos 6 y 7 para agregar un nuevo commit, cambiando el mensaje;
+Ejecuta el comando git checkout master para volver a la línea de desarrollo master;
+15) Regresa a la carpeta que representa tu propio trabajo;
+
+16) Cambia el nombre del curso de Docker a "Docker: Creando contenedores sin dolor de cabeza";
+
+17) Repite los pasos 6 y 7 para agregar un nuevo commit, cambiando el mensaje;
+
+18) Ejecuta el comando git merge titulo para traer el trabajo realizado en la branch título a la branch master;
+
+19) Ejecuta el comando git log --graph para ver las líneas de desarrollo (branches);
+
+20) Ejecuta git checkout titulo para trabajar en la branch llamada titulo;
+
+21) Cambia el título para que tenga la palabra "Cursos" en mayúscula;
+
+22) Repite los pasos 6 y 7 para agregar un nuevo commit, cambiando el mensaje;
+
+23) Ejecuta el comando git checkout master para volver a la línea de desarrollo master;
+
+24) Ejecuta el comando git rebase titulo;
+
+25) Ejecuta el comando git log y verifica que el commit se agregó antes del commit realizado directamente en la branch master;
+
+26) Ejecuta el comando git push servidorlocal master para enviar tus cambios al repositorio remoto que creamos en la última clase;
+
+27) En la carpeta creada para representar el trabajo de otra persona en la clase anterior:
+
+Ejecuta el comando git pull servidorlocal master para descargar los cambios que ya has realizado;
+Ejecuta el comando git checkout lista para continuar trabajando en la lista de cursos;
+Cambia el nombre del curso de Docker a "Curso de Docker: Creación de contenedores sin dolor de cabeza";
+Repite los pasos 6 y 7 para agregar un nuevo commit, cambiando el mensaje;
+Ejecuta el comando git checkout master para volver a la línea de desarrollo master;
+Intenta juntar tu trabajo con git merge lista;
+Observa que hay conflictos. Corrígelos, dejando solo la línea con el nombre correcto del curso;
+Ejecuta el comando git add index.html para informar que los conflictos en este archivo se han solucionado;
+Ejecuta el comando git commit para que Git complete el merge;
+Ejecuta el comando git push servidorlocal master para enviar tus cambios;
+28) Regresa a la carpeta que representa tu propio trabajo;
+
+29) Cambia el nombre del curso de Vagrant a "Vagrant: Gerenciando máquinas virtuales";
+
+30) Repita los pasos 6 y 7 para agregar un nuevo commit, cambiando el mensaje;
+
+31) Intenta ejecutar el comando git push servidorlocal master. Observa la falla;
+
+32) Ejecuta el comando git pull servidorlocal master para traer los cambios de la otra persona;
+
+33) Ahora si, ejecuta el comando git push servidorlocal master para enviar los cambios.
 
 
 
