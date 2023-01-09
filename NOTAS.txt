@@ -180,6 +180,35 @@ git log
 luego copiamos el hash ctrl+ c
 git revert codigoHash    = para deshacer el cambio o volver al condigo antes aplicado.
 
+git tash  = para guardarlo temporal , trabajo en progreso
+para continuar con el trabajo usar el comando:
+git stash list    = lista de todos los stash que tengo
+git stash apply 0   = el cero es el numero de lista que quiero mandar a llmar, que es el trabajo temporarl que garde hace rato.
+
+git stash pop = hace un merge con los cambio que ya teniamos y con los que estaba en hash, es mejor usar este que el codigo de arriba.sta
+---------------------------------------------
+viajando en el tiempo
+-------------------------------------------
+para viajar o regresar a otro punto de nuestro codgio , ejecutar 
+
+git checkout numeroHash de 7 digitos  (para obtener ese codigo se usa =git log --oneline )
+
+cuando estemos ahi podemos revisar y todo , no afectar al codigo principal pero si se quiere guardar los cambios con el trabajo acttual , hay que hacer una nueva 
+rama branch 
+git checkout -b nuevabranch  , esto se hace cuando estemos en ese codgio anteriro que queremos unir.
+para volver al principo o de la ultima modificacion o el actual codigo se usa.
+git checkout master
+
+ 
+
+
+
+
+
+
+
+
+
 
 
 
